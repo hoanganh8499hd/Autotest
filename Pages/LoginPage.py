@@ -1,4 +1,4 @@
-from email import message
+from selenium.webdriver.common.by import By
 
 
 class LoginPage:
@@ -12,7 +12,7 @@ class LoginPage:
         self.driver = driver
 
     def clickSignIn(self):
-        self.driver.find_element_by_xpath(self.link_signin_xpath).click()
+        self.driver.find_element(By.XPATH, self.link_signin_xpath).click()
 
     def set_email(self, email):
         self.driver.find_element_by_id(self.email_input_id).clear()
@@ -25,5 +25,5 @@ class LoginPage:
     def click_login(self):
         self.driver.find_element_by_id(self.button_login_id).click()
 
- 
-         
+    def check_message(self):
+        return self.driver.find_element(By.XPATH, '/html/body/div[1]/div[2]/div/div[3]/div/div[1]/ol/li').text

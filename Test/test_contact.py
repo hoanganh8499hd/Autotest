@@ -7,7 +7,7 @@ from Pages.ContactUs import ContactUS
 chromedriver_autoinstaller.install()
 
 
-class ContactUs(unittest.TestCase):
+class TestContactUS(unittest.TestCase):
 
     def setUp(self):
         print("Initiating Chrome driver")

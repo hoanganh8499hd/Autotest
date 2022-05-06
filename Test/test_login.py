@@ -39,14 +39,16 @@ class TestLogin(unittest.TestCase):
         login.click_login()
         time.sleep(3)
 
-    def test_login_unsuccessfully(self):
+    def test_login_missing_password(self):
 
         login = LoginPage(self.driver)
         login.clickSignIn()
         login.set_email(json_object['email'])
-        login.set_psw(json_object['psw'])
         login.click_login()
+
         time.sleep(3)
+        message = login.check_message()
+        self.assertEqual('Password is required.', message, 'Password is True')
 
     def tearDown(self):
         self.driver.quit()

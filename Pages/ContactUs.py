@@ -1,5 +1,3 @@
-import os
-
 from selenium.webdriver.support.select import Select
 
 
